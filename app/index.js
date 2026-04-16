@@ -1,5 +1,6 @@
 import ChatScreen from '../screens/ChatScreen';
+import ProfileScreen from '../screens/ProfileScreen'
 
 export default function App() {
-  return <ChatScreen />;
+  return <ProfileScreen />;
 }
