@@ -1,5 +1,6 @@
 import React from 'react';
-import { SafeAreaView, StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, Button } from 'react-native';
+import { router } from "expo-router";
 import MessageBubble from '../components/Message';
 
 const sampleMessages = [
@@ -11,7 +12,7 @@ const sampleMessages = [
 
 export default function ChatScreen() {
   return (
-    <SafeAreaView style={styles.safeArea}>
+    
       <View style={styles.container}>
         <Text style={styles.heading}>Chat Preview</Text>
         {sampleMessages.map((message) => (
@@ -21,8 +22,9 @@ export default function ChatScreen() {
             message={message.message}
           />
         ))}
+        <Button title="Go to Chat" onPress={() => router.push("./ProfileScreen")} />
       </View>
-    </SafeAreaView>
+    
   );
 }
 

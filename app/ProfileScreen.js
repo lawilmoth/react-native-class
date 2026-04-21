@@ -1,34 +1,29 @@
 import React from 'react';
-import { SafeAreaView, ScrollView, StyleSheet, Text, View } from 'react-native';
+import {ScrollView, StyleSheet, Text, View } from 'react-native';
 
-import CounterButton from '../components/CounterButton';
-import ListExample from '../components/ListExample';
-import ProfileCard from '../components/ProfileCard';
+
+
 
 const favoriteTopics = ['React Native basics', 'Expo Router', 'Reusable components'];
 
 const ProfileScreen = () => {
   return (
-    <SafeAreaView style={styles.safeArea}>
+    <>
       <ScrollView contentContainerStyle={styles.content} showsVerticalScrollIndicator={false}>
         <View style={styles.header}>
           <Text style={styles.eyebrow}>Sample Profile</Text>
-          <Text style={styles.title}>Component Playground</Text>
+          <Text style={styles.title}>Profile</Text>
           <Text style={styles.subtitle}>
             This screen shows a reusable profile card, an interactive button, and a
             lightweight list example in one place.
           </Text>
         </View>
 
-        <ProfileCard
-          name="Mr. Wilmoth"
-          role="React Native learner"
-          bio="Building an Expo app while practicing clean component structure and layout patterns."
-        />
-        <CounterButton />
-        <ListExample title="Topics in this demo" data={favoriteTopics} />
+        
+        
+        
       </ScrollView>
-    </SafeAreaView>
+    </>
   );
 };
 
