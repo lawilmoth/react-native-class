@@ -1,26 +1,40 @@
-import { View, Text, StyleSheet } from 'react-native'
+import { StyleSheet, Text, View } from 'react-native';
 
-export default function MessageBubble ({message}) {
-    return(
-        <View style={[styles.bubble, styles.me]}>
-            <Text style={styles.text}>{message}</Text>
-        </View>
-    )
+export default function MessageBubble({ message, isCurrentUser = false }) {
+  return (
+    <View
+      style={[
+        styles.bubble,
+        isCurrentUser ? styles.currentUserBubble : styles.otherUserBubble,
+      ]}
+    >
+      <Text style={[styles.text, isCurrentUser && styles.currentUserText]}>{message}</Text>
+    </View>
+  );
 }
 
 const styles = StyleSheet.create({
-    bubble: {
-        padding: 10,
-        borderRadius: 12,
-        backgroundColor: '#e5e5ea',
-        marginVertical: 4,
-        marginHorizontal: 10,
-        maxWidth: "70%",
-    },
-    text : {
-        fontSize:  16,
-    },
-    me : {
-        alignSelf: 'flex-end',
-    }
-})
+  bubble: {
+    paddingHorizontal: 14,
+    paddingVertical: 10,
+    borderRadius: 16,
+    marginVertical: 4,
+    maxWidth: '78%',
+  },
+  text: {
+    fontSize: 16,
+    lineHeight: 22,
+    color: '#102542',
+  },
+  currentUserBubble: {
+    alignSelf: 'flex-end',
+    backgroundColor: '#2f80ed',
+  },
+  currentUserText: {
+    color: '#ffffff',
+  },
+  otherUserBubble: {
+    alignSelf: 'flex-start',
+    backgroundColor: '#e5edf8',
+  },
+});
